@@ -2,6 +2,9 @@ cp=""
 pn=""
 var score = new Object();
 score_list = [];
+window.onbeforeunload = function () {
+  return "リロード禁止です！";
+};
 
 function myFunction(sc) {
     // ここに実行したいコードを書く
