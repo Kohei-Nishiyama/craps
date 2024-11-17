@@ -107,7 +107,7 @@ function viewtable(){
             y=y+1;
             x=1;
         }else{
-            if(x<15){
+            if(x<14){
             x=x+1;
             }else{
                 y=y+1;
