@@ -89,7 +89,7 @@ function myFunction(sc) {
 
     //テーブルに追加
 
-    document.getElementById('hb').innerHTML ='<button type="button" class="me-auto btn btn-outline-primary" name="but_hard" data-bs-toggle="button">Hardway</button>';
+    document.getElementById('hb').innerHTML ='<button type="button" class="me-auto btn btn-outline-primary btn-custom-size3" name="but_hard" data-bs-toggle="button">Hardway</button>';
 
     viewtable();
     }
@@ -98,10 +98,28 @@ function viewtable(){
     table=document.getElementById("score_table")
     x=1;
     y=0;
+    document.querySelectorAll( ":is( th, td )" ).forEach( cell =>
+        cell.textContent = "" );
+    document.querySelectorAll( ":is( th, td )" ).forEach( cell =>
+        cell.style = null );
 
     for (let index = 0; index < score_list.length; index++) {
         element = score_list[index];
         table.rows[y].cells[0].innerHTML =element[0].player;
+        switch (element[0].player) {
+            case "Player A":
+                table.rows[y].cells[0].style.backgroundColor ='#b0c4de';
+                break;
+            case "Player B":
+                table.rows[y].cells[0].style.backgroundColor ='#fffacd';
+                break;
+            case "Player C":
+                table.rows[y].cells[0].style.backgroundColor ='#66cdaa';
+                break;
+            case "Player D":
+                table.rows[y].cells[0].style.backgroundColor ='#dda0dd';
+                break;
+        }
         table.rows[y].cells[x].innerHTML =getimg(element[0].score,element[0].hc,element[0].point);
         if(element[0].score ==7){
             y=y+1;
@@ -114,8 +132,9 @@ function viewtable(){
                 x=1;
             }
         }
-      　table.rows[y].cells[x].style.borderColor ="#71585";
+        
     }
+    table.rows[y].cells[x].style.backgroundColor ='#dcdcdc';
     t7=0;
     w7=0;
     renz=0;
@@ -502,6 +521,8 @@ function rest(){
         score_list = [];
         document.querySelectorAll( ":is( th, td )" ).forEach( cell =>
            cell.textContent = "" );
+        document.querySelectorAll( ":is( th, td )" ).forEach( cell =>
+            cell.style = null );
         viewtable();
     }
 
