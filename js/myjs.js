@@ -114,6 +114,7 @@ function viewtable(){
                 x=1;
             }
         }
+      　table.rows[y].cells[x].style.borderColor ="#71585";
     }
     t7=0;
     w7=0;
